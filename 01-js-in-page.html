@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01 JS in Page</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"
+      integrity="sha512-fHY2UiQlipUq0dEabSM4s+phmn+bcxSYzXP4vAXItBvBHU7zAM/mkhCZjtBEIJexhOMzZbgFlPLuErlJF2b+0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css"
+      integrity="sha512-Z/def5z5u2aR89OuzYcxmDJ0Bnd5V1cKqBEbvLOiUNWdg9PQeXVvXLI90SE4QOHGlfLqUnDNVAYyZi8UwUTmWQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="p-5">
+      <h2>Welcome!</h2>
+      <button class="btn btn-primary mb-4">Add Elements</button>
+      <ul></ul>
+    </div>
+
+    <script>
+      //  query for the element
+      const ul = document.querySelector('ul');
+      const btn = document.querySelector('button');
+
+      const elements = ['Hydrogen', 'Oxygen', 'Iron', 'Gold', 'Nitrogen'];
+
+      btn.addEventListener('click', () => {
+        elements.forEach((e) => {
+          const li = document.createElement('li');
+          const textNode = document.createTextNode(e);
+
+          li.appendChild(textNode);
+          ul.appendChild(li);
+        });
+      });
+    </script>
+  </body>
+</html>

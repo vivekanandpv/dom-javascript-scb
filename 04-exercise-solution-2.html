@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02 Validation</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"
+      integrity="sha512-fHY2UiQlipUq0dEabSM4s+phmn+bcxSYzXP4vAXItBvBHU7zAM/mkhCZjtBEIJexhOMzZbgFlPLuErlJF2b+0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css"
+      integrity="sha512-Z/def5z5u2aR89OuzYcxmDJ0Bnd5V1cKqBEbvLOiUNWdg9PQeXVvXLI90SE4QOHGlfLqUnDNVAYyZi8UwUTmWQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- Ex: Take input from the name text box and validate to check if it contains only
+    alphabets or not. If it does not contain, display the error message next to
+    the text box “please enter only alphabets”. -->
+
+    <div class="p-5">
+      <h2>Welcome!</h2>
+      <input type="text" class="form-control mb-3" />
+      <p class="form-text"></p>
+    </div>
+
+    <script>
+      const input = document.querySelector('input');
+      const message = document.querySelector('p');
+
+      input.addEventListener('input', (e) => {
+        //  get the current input value
+        const value = e.target.value;
+
+        //  match the input value against the regex
+        const re = /^[A-Za-z ]+$/;
+
+        //  display the message
+        if (re.test(value)) {
+          //  validation passing
+          message.textContent = 'Looks good';
+          message.classList.remove('text-danger');
+          message.classList.add('text-success');
+        } else {
+          //  validation failing
+          message.textContent = 'Please enter only alphabets';
+          message.classList.remove('text-success');
+          message.classList.add('text-danger');
+        }
+      });
+    </script>
+  </body>
+</html>
