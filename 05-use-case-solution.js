@@ -10,7 +10,23 @@ let emailValid = false;
 let contactValid = false;
 let accountTypeValid = false;
 
-//  Reusalbe validate
+//  DOM references
+const tbody = document
+  .getElementById('customers')
+  .getElementsByTagName('tbody')[0];
+
+const inputName = document.getElementById('name');
+const inputEmail = document.getElementById('email');
+const inputContact = document.getElementById('contact');
+const selectAccountType = document.getElementById('account-type');
+
+const nameValidationError = document.getElementById('name-error');
+const emailValidationError = document.getElementById('email-error');
+const contactValidationError = document.getElementById('contact-error');
+const accountTypeValidationError =
+  document.getElementById('account-type-error');
+
+//  Reusable validate
 const validate = (regex, value) => {
   return regex.test(value);
 };
@@ -47,22 +63,6 @@ const validateAccountType = (e) => {
 const getValidationStatus = () => {
   return nameValid && emailValid && contactValid && accountTypeValid;
 };
-
-//  DOM references
-const tbody = document
-  .getElementById('customers')
-  .getElementsByTagName('tbody')[0];
-
-const inputName = document.getElementById('name');
-const inputEmail = document.getElementById('email');
-const inputContact = document.getElementById('contact');
-const selectAccountType = document.getElementById('account-type');
-
-const nameValidationError = document.getElementById('name-error');
-const emailValidationError = document.getElementById('email-error');
-const contactValidationError = document.getElementById('contact-error');
-const accountTypeValidationError =
-  document.getElementById('account-type-error');
 
 //  Event handler registration
 inputName.addEventListener('input', validateName);
